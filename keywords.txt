@@ -1,0 +1,27 @@
+#######################################
+# Syntax Coloring Map
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+WButton	KEYWORD1
+WColor	KEYWORD1
+WLed	KEYWORD1
+WRelais	KEYWORD1
+WRgb	KEYWORD1
+WTimer	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+setup	KEYWORD2
+loop	KEYWORD2
+event	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
