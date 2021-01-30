@@ -21,6 +21,10 @@ class WRgb
     void setColor(unsigned char r, unsigned char g, unsigned char b);
     void setBlink(unsigned long blinkTime);
 
+	void on() { setOn(true); }
+	void off() { setOn(false); }
+	bool isOn() { return state; }   
+	
   private:
 
     Adafruit_NeoPixel leds;

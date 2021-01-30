@@ -18,7 +18,11 @@ class WLed
     void loop();
     
     void setOn(bool state);
-    void setBlink(unsigned long blinkTime);
+	void on() { setOn(true); }
+	void off() { setOn(false); }
+	bool isOn() { return state; }
+    
+	void setBlink(unsigned long blinkTime);
 
   private:
 

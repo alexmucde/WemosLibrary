@@ -18,10 +18,15 @@ class WRelais
     void setOn(bool state);
     void trigger(unsigned long time);
 
+	void on() { setOn(true); }
+	void off() { setOn(false); }
+	bool isOn() { return state; }    
+
   private:
 
     int pin;
     WTimer timer;
+	int state;
   
 };
 
