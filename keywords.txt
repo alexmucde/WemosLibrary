@@ -12,6 +12,9 @@ WLed	KEYWORD1
 WRelais	KEYWORD1
 WRgb	KEYWORD1
 WTimer	KEYWORD1
+WMqtt 	KEYWORD1
+WCOlor	KEYWORD1
+WBuzzer KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)

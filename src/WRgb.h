@@ -6,12 +6,13 @@
 #include "Arduino.h"
 
 #include "WTimer.h"
+#include "WColor.h"
   
 class WRgb
 {
   public:
 
-    WRgb(int pin = D2);
+    WRgb(int pixel = 1,int pin = D2);
     ~WRgb();
 
     void setup();
@@ -19,9 +20,11 @@ class WRgb
 
     void setOn(bool state);
     void setColor(unsigned char r, unsigned char g, unsigned char b);
+    void setColor(const WColor &color);
     void setBlink(unsigned long blinkTime);
 
 	void on() { setOn(true); }
+	void on(unsigned long offTime) { offTimer.start(offTime);setOn(true); }
 	void off() { setOn(false); }
 	bool isOn() { return state; }   
 	
@@ -29,11 +32,13 @@ class WRgb
 
     Adafruit_NeoPixel leds;
     int pin;
+	int pixel;
     bool state;
     unsigned char r,g,b;
     bool lastState;
     unsigned long blinkTime;
-    WTimer timer;
+    WTimer blinkTimer;
+	WTimer offTimer;
   
 };
 

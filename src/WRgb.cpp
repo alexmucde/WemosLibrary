@@ -1,9 +1,10 @@
 #include "WRgb.h"
 
-WRgb::WRgb(int pin)
- : leds(1, pin, NEO_GRB + NEO_KHZ800)
+WRgb::WRgb(int pixel,int pin)
+ : leds(pixel, pin, NEO_GRB + NEO_KHZ800)
 {
   this->pin = pin;
+  this->pixel = pixel;
   state = false;
   r = 0xff;
   g = 0xff;
@@ -21,31 +22,40 @@ void WRgb::setup()
 {
   leds.begin();  
 
-  leds.setPixelColor(0, leds.Color(0, 0, 0));
+  for(int i = 0;i<pixel;i++)
+	leds.setPixelColor(i, leds.Color(0, 0, 0));
   leds.show();    
 }
 
 void WRgb::loop()
 {
-  switch(timer.event())
+  switch(blinkTimer.event())
   {
     case WTimer::Expired:
       if(state == true)
       {
         if(lastState== false)
         {
-          leds.setPixelColor(0, leds.Color(r, g, b));
+		  for(int i = 0;i<pixel;i++)
+		    leds.setPixelColor(i, leds.Color(r, g, b));
           leds.show();    
           lastState = true;
         }
         else
         {
-          leds.setPixelColor(0, leds.Color(0, 0, 0));    
+		  for(int i = 0;i<pixel;i++)
+		    leds.setPixelColor(i, leds.Color(0, 0, 0));    
           leds.show();    
           lastState = false;
         }
       }
-      timer.start(blinkTime);
+      blinkTimer.start(blinkTime);
+      break;      
+  }  
+  switch(offTimer.event())
+  {
+    case WTimer::Expired:
+      off();
       break;      
   }  
 }
@@ -54,13 +64,15 @@ void WRgb::setOn(bool state)
 {
   if(state == true)
   {
-    leds.setPixelColor(0, leds.Color(r, g, b));
+	for(int i = 0;i<pixel;i++)
+	  leds.setPixelColor(i, leds.Color(r, g, b));
     this->state = true;
     lastState = true;
   }
   else
   {
-    leds.setPixelColor(0, leds.Color(0, 0, 0));
+	for(int i = 0;i<pixel;i++)
+	  leds.setPixelColor(i, leds.Color(0, 0, 0));
     this->state = false;
     lastState = false;
   }
@@ -75,14 +87,29 @@ void WRgb::setColor(unsigned char r, unsigned char g, unsigned char b)
 
   if(state)
   {
-    leds.setPixelColor(0, leds.Color(r, g, b));
+	for(int i = 0;i<pixel;i++)
+		leds.setPixelColor(i, leds.Color(r, g, b));
     leds.show();      
   }
+}
+
+void WRgb::setColor(const WColor &color)
+{
+  this->r = color.r;
+  this->g = color.g;
+  this->b = color.b;
+
+  if(state)
+  {
+	for(int i = 0;i<pixel;i++)
+		leds.setPixelColor(i, leds.Color(r, g, b));
+    leds.show();      
+  }	
 }
 
 
 void WRgb::setBlink(unsigned long blinkTime)
 {
   this->blinkTime = blinkTime;
-  timer.start(blinkTime);
+  blinkTimer.start(blinkTime);
 }
