@@ -2,12 +2,15 @@
 #define W_COLOR
 
 class WRgb;
+class WColorArray;
 
 class WColor
 {
 	friend WRgb;
+	friend WColorArray;
 	
 	public:
+		WColor();
 		WColor(unsigned char r,unsigned char g,unsigned char b);
 		WColor(const WColor &color);
 		~WColor();

@@ -107,6 +107,19 @@ void WRgb::setColor(const WColor &color)
   }	
 }
 
+void WRgb::setColorArray(const WColorArray &colors)
+{
+  if(state)
+  {
+	for(int i = 0;i<colors.size;i++)
+	{
+		if(i<pixel)
+			leds.setPixelColor(i, leds.Color(colors.colors[i].r, colors.colors[i].g, colors.colors[i].b));
+	}
+    leds.show();      
+  }		
+}
+
 
 void WRgb::setBlink(unsigned long blinkTime)
 {

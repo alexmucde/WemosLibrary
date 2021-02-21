@@ -45,11 +45,49 @@ Supports WEMOS Relais Shield
 
 ### Default Settings
 
+Pin: GPIO14/D5
+
+### Dependent Library
+
+None
+
+## WBuzzer
+
+### Supported Boards
+
+Supports WEMOS Buzzer Shield
+
+### Default Settings
+
 Pin: GPIO05/D1
 
 ### Dependent Library
 
 None
+
+## WCan
+
+### Supported Boards
+
+Supports a custom build CAN Shield with MCP2515
+
+### Default Settings
+
+D5 SCK
+D6 MISO
+D7 MOSI
+D8 GPIO015 CS
+D4 GPIO02 INT
+
+### Dependent Library
+
+MCP CAN lib
+
+## WMqtt
+
+### Dependent Library
+
+PubSubClient
 
 ## WTimer
 
@@ -58,6 +96,14 @@ Helper class
 ## WColour
 
 Helper class
+
+## WColourArray
+
+Helper class
+
+## WDlt
+
+Logging in the Automotive DLT protocol
 
 # Links
 

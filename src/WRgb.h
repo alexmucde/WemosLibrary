@@ -7,6 +7,7 @@
 
 #include "WTimer.h"
 #include "WColor.h"
+#include "WColorArray.h"
   
 class WRgb
 {
@@ -21,6 +22,7 @@ class WRgb
     void setOn(bool state);
     void setColor(unsigned char r, unsigned char g, unsigned char b);
     void setColor(const WColor &color);
+    void setColorArray(const WColorArray &colors);
     void setBlink(unsigned long blinkTime);
 
 	void on() { setOn(true); }
