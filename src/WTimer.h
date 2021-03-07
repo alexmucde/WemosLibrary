@@ -18,8 +18,7 @@ class WTimer
     void start(unsigned long duration);
     void stop();
 
-    bool running() { return ((duration!=0) && (eventExpired!=0)); }
-    bool expired() { return eventExpired; }
+    bool running();
     bool isExpired() { return stateExpired; }
 
   private:

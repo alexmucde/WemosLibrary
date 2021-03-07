@@ -4,7 +4,6 @@ WTimer::WTimer()
 {
   startTime = 0;
   duration = 0;
-  eventExpired = false;
   stateExpired = false;
 }
 
@@ -32,13 +31,11 @@ WTimer::TimerEvent WTimer::event()
   {
     if(!stateExpired)
     {
-      eventExpired = true;
       stateExpired = true;
       return WTimer::Expired;
     }
     else
     {
-      eventExpired = false;
     }
   }  
   return WTimer::None;
@@ -49,7 +46,6 @@ void WTimer::start(unsigned long duration)
 {
   startTime = millis();
   this->duration = duration;
-  eventExpired = false;
   stateExpired = false;
 }
 
@@ -57,6 +53,25 @@ void WTimer::stop()
 {
   startTime = 0;
   duration = 0;
-  eventExpired = false;
   stateExpired = false;
 }
+
+bool WTimer::running()
+{
+	if(duration!=0)
+	{
+		if(stateExpired==true)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}		
+	}
+	else
+	{
+		return false;
+	}
+}
+

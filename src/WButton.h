@@ -2,6 +2,7 @@
 #define W_BUTTON
 
 #include "Arduino.h"
+#include <WTimer.h>
 
 class WButton
 {
@@ -10,7 +11,7 @@ class WButton
     WButton(int pin = D3);
     ~WButton();
 
-    enum ButtonEvent { None, Pressed, Released };
+    enum ButtonEvent { None, Pressed, Released, ShortPress, LongPress };
 
     void setup();
     ButtonEvent event();
@@ -28,6 +29,9 @@ class WButton
     unsigned long debounceDelay;     // the debounce time; increase if the output flickers
 
     bool statePressed;     // set when button pressed
+	
+	WTimer longPressTimer;
+	WTimer debounceTimer;
 
 };
 

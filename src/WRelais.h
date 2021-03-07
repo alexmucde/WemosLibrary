@@ -20,6 +20,7 @@ class WRelais
 
 	void on() { setOn(true); }
 	void off() { setOn(false); }
+	void toggle();
 	bool isOn() { return state; }    
 
   private:

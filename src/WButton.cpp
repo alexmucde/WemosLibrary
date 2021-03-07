@@ -22,25 +22,23 @@ void WButton::setup()
 WButton::ButtonEvent WButton::event()
 {
   int reading = digitalRead(pin);
+  longPressTimer.event();
+  debounceTimer.event();
 
   if (reading != lastButtonState) {
-    // reset the debouncing timer
-    lastDebounceTime = millis();
+    debounceTimer.start(50);
   }
 
-  if ((millis() - lastDebounceTime) > debounceDelay) {
-    // whatever the reading is at, it's been there for longer
-    // than the debounce delay, so take it as the actual current state:
-  
-    // if the button state has changed:
+  if(debounceTimer.isExpired())
+  {
     if (reading != buttonState) {
         buttonState = reading;
-  
-        // only toggle the LED if the new button state is HIGH
-        if (buttonState == LOW) 
+        
+		if (buttonState == LOW) 
         {
           statePressed = true;
           lastButtonState = reading;
+		  longPressTimer.start(750);
           return WButton::Pressed;
         }
         else
@@ -49,7 +47,22 @@ WButton::ButtonEvent WButton::event()
           lastButtonState = reading;
           return WButton::Released;
         }
-      }
+		
+	}
+  }  
+  
+  if(statePressed == false && longPressTimer.running())
+  {
+	  // Short Press detected
+	  longPressTimer.stop();
+	  return WButton::ShortPress;
+  }
+  
+  if(statePressed == true && longPressTimer.isExpired())
+  {
+	  // Long Press detected
+	  longPressTimer.stop();
+	  return WButton::LongPress;
   }
   
   lastButtonState = reading;

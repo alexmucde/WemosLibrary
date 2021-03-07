@@ -3,7 +3,7 @@
 WRelais::WRelais(int pin)
 {
   this->pin = pin;
-  state = false;
+  this->state = false;
 }
 
 WRelais::~WRelais()
@@ -33,12 +33,12 @@ void WRelais::setOn(bool state)
   if(state == true)
   {
     digitalWrite(pin,HIGH);
-	state = true;
+	this->state = true;
   }
   else
   {
     digitalWrite(pin,LOW);    
-	state = false;
+	this->state = false;
   }
 }
 
@@ -47,5 +47,18 @@ void WRelais::trigger(unsigned long time)
   digitalWrite(pin,HIGH);
   timer.start(time);
 }
+
+void WRelais::toggle()
+{
+	if(state == true)
+	{
+		setOn(false);
+	}
+	else 
+	{
+		setOn(true);
+	}
+}
+
 
   
