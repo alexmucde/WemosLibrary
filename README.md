@@ -105,6 +105,10 @@ Helper class
 
 Logging in the Automotive DLT protocol
 
+## Serial
+
+Helper class for serial port communication
+
 # Links
 
 https://github.com/alexmucde/WemosLibrary

@@ -17,6 +17,7 @@ WColor	KEYWORD1
 WBuzzer KEYWORD1
 WCan    KEYWORD1
 WDlt    KEYWORD1
+WSerial KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
