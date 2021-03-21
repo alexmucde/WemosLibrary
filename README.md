@@ -3,13 +3,17 @@ Easy to use C++ Library for the WEMOS/LOLIN D1 mini CPU boards and shields for t
 
 The following Wemos D1 Mini CPU Boards are supprted:
 
-![Image of Wemos D1 Mini](https://github.com/alexmucde/WemosLibrary/blob/main/doc/images/WemosD1Mini.jpg) [Amazon Germany](https://amzn.to/3thvzYd) [AliExpress](https://s.click.aliexpress.com/e/_AXoYOK)
-![Image of Wemos D1 Mini v3](https://github.com/alexmucde/WemosLibrary/blob/main/doc/images/WemosD1MiniV3.jpg) 
-![Image of Wemos D1 Mini Pro](https://github.com/alexmucde/WemosLibrary/blob/main/doc/images/WemosD1MiniPro.jpg)
+![Image of Wemos D1 Mini](https://github.com/alexmucde/WemosLibrary/blob/main/doc/images/WemosD1Mini.jpg) [AliExpress](https://s.click.aliexpress.com/e/_AXoYOK)
+
+![Image of Wemos D1 Mini v3](https://github.com/alexmucde/WemosLibrary/blob/main/doc/images/WemosD1MiniV3.jpg) [Amazon Germany](https://amzn.to/3thvzYd) [AliExpress](https://s.click.aliexpress.com/e/_AsJ7pg)
+
+![Image of Wemos D1 Mini Pro](https://github.com/alexmucde/WemosLibrary/blob/main/doc/images/WemosD1MiniPro.jpg) [AliExpress](https://s.click.aliexpress.com/e/_Ag4g4w)
+
 
 The following base boards can be used to use several Wemos Shields in parallel:
 
 ![Image of Dual Base](https://github.com/alexmucde/WemosLibrary/blob/main/doc/images/DualBase.jpg) [Amazon Germany](https://amzn.to/3eyI9Ov) [AliExpress Dual Base](https://s.click.aliexpress.com/e/_9In2Z0)
+
 ![Image of Triple Base](https://github.com/alexmucde/WemosLibrary/blob/main/doc/images/TripleBase.jpg) [AliExpress Triple Base](https://s.click.aliexpress.com/e/_AXI4VC)
 
 
@@ -59,7 +63,7 @@ void loop() {
 
 WEMOS WS2812B RGB Shield
 
-![Image of RGB Shield](https://github.com/alexmucde/WemosLibrary/blob/main/doc/images/RgbShield.jpg)
+![Image of RGB Shield](https://github.com/alexmucde/WemosLibrary/blob/main/doc/images/RgbShield.jpg) [AliExpress](https://s.click.aliexpress.com/e/_A9uePs)
 ![Image of RGB 7 Shield](https://github.com/alexmucde/WemosLibrary/blob/main/doc/images/Rgb7Shield.jpg)
 
 ### Default Settings
@@ -284,7 +288,7 @@ Github Sponsors:
 
 Alexander Wenzel <alex@eli2.de>
 
-This code is licensed under MPLv2.
+This code is licensed under LGPLv3.
 
 # Links
 
