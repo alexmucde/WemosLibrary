@@ -6,26 +6,27 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-WButton	KEYWORD1
-WColor	KEYWORD1
-WLed	KEYWORD1
-WRelais	KEYWORD1
-WRgb	KEYWORD1
-WTimer	KEYWORD1
-WMqtt 	KEYWORD1
-WColor	KEYWORD1
-WBuzzer KEYWORD1
-WCan    KEYWORD1
-WDlt    KEYWORD1
-WSerial KEYWORD1
+WButton		KEYWORD1
+WColor		KEYWORD1
+WLed		KEYWORD1
+WRelais		KEYWORD1
+WRgb		KEYWORD1
+WTimer		KEYWORD1
+WMqtt 		KEYWORD1
+WColor		KEYWORD1
+WBuzzer 	KEYWORD1
+WAmbientLight KEYWORD1
+WCan    	KEYWORD1
+WDlt    	KEYWORD1
+WSerial 	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
-setup	KEYWORD2
-loop	KEYWORD2
-event	KEYWORD2
+setup		KEYWORD2
+loop		KEYWORD2
+event		KEYWORD2
 
 #######################################
 # Constants (LITERAL1)

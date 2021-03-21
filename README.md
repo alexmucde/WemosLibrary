@@ -64,6 +64,7 @@ void loop() {
 WEMOS WS2812B RGB Shield
 
 ![Image of RGB Shield](https://github.com/alexmucde/WemosLibrary/blob/main/doc/images/RgbShield.jpg) [AliExpress](https://s.click.aliexpress.com/e/_A9uePs)
+
 ![Image of RGB 7 Shield](https://github.com/alexmucde/WemosLibrary/blob/main/doc/images/Rgb7Shield.jpg)
 
 ### Default Settings
@@ -219,6 +220,51 @@ void loop() {
   delay(500);
   buzzer.tone(230,150); // e
   delay(500);
+}
+```
+
+## WAmbientLight
+
+### Supported Boards
+
+Supports WEMOS Ambient Light
+
+![Image of Ambient Light Shield](https://github.com/alexmucde/WemosLibrary/blob/main/doc/images/AmbientLightShield.jpg)
+
+### Default Settings
+
+Pin:
+
+* GPIO05/D1
+* GPIO04/D2
+
+Default I²C Address: 0x23
+
+### Dependent Library
+
+BH1750
+
+### Examples
+
+```
+#include <WAmbientLight.h>
+
+WAmbientLight ambientLight;
+
+void setup() {
+	Serial.begin(115200);
+	
+	ambientLight.setup();
+}
+
+void loop() {
+	uint16_t value = ambientLight.getValue();
+
+	Serial.print("Light: ");
+	Serial.print(value);
+	Serial.println(" lx");
+	delay(1000);
+  
 }
 ```
 
