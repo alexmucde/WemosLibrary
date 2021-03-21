@@ -1,11 +1,12 @@
 #include <WRgb.h>
 
-WRgb rgb;
+WRgb rgb;		// single WS2812B RGB Leds
+//WRgb rgb(7);	// seven WS2812B RGB Leds
 
 void setup() {
   rgb.setup();
   rgb.setBlink(200);
-  rgb.setColor(0xff,0,0);
+  rgb.setColor(red);
   rgb.on();
 }
 
