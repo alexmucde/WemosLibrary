@@ -10,7 +10,7 @@ class WSerial
 		WSerial();
 		~WSerial();
 
-		enum SerialEvent { None, Line };
+		enum SerialEvent { None, Line, Connected, Disconnected };
 	
 		void setup();
 		void loop() { event(); }
@@ -21,6 +21,8 @@ class WSerial
 	private:
 	
 	    String receivedLine;
+		
+		bool connected;
 	
 };
 

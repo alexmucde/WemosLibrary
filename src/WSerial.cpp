@@ -2,7 +2,7 @@
 
 WSerial::WSerial()
 {
-	
+	connected = false;
 }
 
 WSerial::~WSerial()
@@ -18,6 +18,17 @@ void WSerial::setup()
 
 WSerial::SerialEvent WSerial::event()
 {
+	if(connected == false && Serial)
+	{
+		connected = true;
+		return WSerial::Connected;
+	}
+	else if(connected == true && !Serial)
+	{
+		connected = false;
+		return WSerial::Disconnected;
+	}
+			
 	if (Serial.available() > 0)
 	{
 		char data = Serial.read();

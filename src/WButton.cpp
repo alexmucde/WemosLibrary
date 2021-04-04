@@ -3,10 +3,12 @@
 WButton::WButton(int pin)
 {
   this->pin = pin;
-  lastButtonState = 1;
+  lastButtonState = 0;
   lastDebounceTime = 0;
   debounceDelay = 50;
   statePressed = false;
+  buttonState = true;
+  lastButtonState = false;
 }
 
 WButton::~WButton()
@@ -16,12 +18,15 @@ WButton::~WButton()
 
 void WButton::setup()
 {
-  pinMode(pin,INPUT);    
+  pinMode(pin,INPUT);
+  digitalWrite(pin, LOW);  
 }
 
 WButton::ButtonEvent WButton::event()
 {
-  int reading = digitalRead(pin);
+  pinMode(pin,INPUT);    
+  digitalWrite(pin, LOW);  
+  byte reading = digitalRead(pin);
   longPressTimer.event();
   debounceTimer.event();
 
@@ -66,6 +71,7 @@ WButton::ButtonEvent WButton::event()
   }
   
   lastButtonState = reading;
+    
   return WButton::None;
 }
 
