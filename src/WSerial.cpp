@@ -1,8 +1,10 @@
 #include "WSerial.h"
 
-WSerial::WSerial()
+WSerial::WSerial(Mode mode)
 {
 	connected = false;
+	this->mode = mode;
+	length = 0;
 }
 
 WSerial::~WSerial()
@@ -31,18 +33,31 @@ WSerial::SerialEvent WSerial::event()
 			
 	if (Serial.available() > 0)
 	{
-		char data = Serial.read();
-		
-		if(data == '\r') 
+		if(mode == Ascii)
 		{
-			return WSerial::None;
+			char data = Serial.read();
+			
+			if(data == '\r') 
+			{
+				return WSerial::None;
+			}
+			if(data == '\n') 
+			{
+				return WSerial::Line;
+			}
+			
+			receivedLine += data;
 		}
-		if(data == '\n') 
+		else
 		{
-			return WSerial::Line;
+			unsigned char data = Serial.read();
+			if(length<SERIAL_MAX_LENGTH)
+			{
+				this->data[length]=data;
+				length++;
+			}
+     		return WSerial::Data;
 		}
-		
-		receivedLine += data;
 	}
 	
 	return WSerial::None;
@@ -57,4 +72,30 @@ String WSerial::line()
 	receivedLine = "";
 	
 	return back;
+}
+
+unsigned char* WSerial::getData(int &length)
+{
+	length = this->length;
+	return data;
+}
+
+void WSerial::clearData(int length)
+{
+	if(length==-1)
+	{
+		this->length = 0;
+	}
+	else
+	{
+		if(length>this->length)
+		{
+			this->length = 0;
+		}
+		else
+		{
+			memcpy(data,data+length,this->length-length);
+			this->length=this->length-length;
+		}
+	}	
 }
