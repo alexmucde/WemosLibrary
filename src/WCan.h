@@ -8,7 +8,7 @@
 class WCan
 {
 	public:
-		WCan(byte baudrate = CAN_500KBPS,byte clock = MCP_8MHZ, int pinCs = D8,int pinInt = D4);
+		WCan(byte baudrate = CAN_500KBPS,byte clock = MCP_8MHZ, int pinCs = D8,int pinInt = D2);
 		~WCan();
 	
         enum CanEvent { None, Received };
